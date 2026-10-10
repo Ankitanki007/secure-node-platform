@@ -18,6 +18,7 @@ module.exports = {
         HOST: "127.0.0.1",
         PORT: "3001",
         APP_VERSION: "local-dev",
+        ENABLE_LAB_ROUTES: "true",
       },
     },
   ],

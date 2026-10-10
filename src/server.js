@@ -33,6 +33,33 @@ const server = http.createServer((req, res) => {
     response = { status: "ok" };
   } else if (path === "/version") {
     response = { version };
+  } else if (
+    path === "/slow" &&
+    process.env.NODE_ENV === "development" &&
+    process.env.ENABLE_LAB_ROUTES === "true"
+  ) {
+    console.log(JSON.stringify({
+      event: "slow_request_started",
+    }));
+
+    res.on("finish", () => {
+      console.log(JSON.stringify({
+        event: "slow_response_sent",
+      }));
+    });
+
+    setTimeout(() => {
+      res.writeHead(200, {
+        "Content-Type": "application/json",
+        "Cache-Control": "no-store",
+      });
+
+      res.end(JSON.stringify({
+        message: "Slow request completed",
+      }) + "\n");
+    }, 5000);
+
+    return;
   } else {
     statusCode = 404;
     response = { error: "Route not found" };
