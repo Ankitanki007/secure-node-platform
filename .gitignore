@@ -27,3 +27,6 @@ crash.*.log
 # Local Terraform variable values
 *.tfvars
 *.tfvars.json
+
+# Generated application releases
+/dist/
