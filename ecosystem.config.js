@@ -10,6 +10,7 @@ module.exports = {
 
       autorestart: true,
       restart_delay: 2000,
+      kill_timeout: 10000,
       watch: false,
 
       env: {
