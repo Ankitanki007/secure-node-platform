@@ -1,0 +1,29 @@
+# Node.js dependencies and coverage
+node_modules/
+coverage/
+
+# Logs and local PM2 data
+*.log
+.pm2/
+
+# Local environment files
+.env
+.env.*
+!.env.example
+
+# Credentials and private keys
+.aws/
+*.pem
+*.key
+
+# Terraform local data, state, and saved plans
+.terraform/
+*.tfstate
+*.tfstate.*
+*.tfplan
+crash.log
+crash.*.log
+
+# Local Terraform variable values
+*.tfvars
+*.tfvars.json
